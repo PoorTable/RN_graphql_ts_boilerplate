@@ -1,0 +1,21 @@
+query GetAllPokemons {
+    pokemons {
+        results {
+            id
+            name
+            image
+            url
+        }
+    }
+}
+
+query useGetPokemonAbilities($name: String!) {
+    pokemon(name: $name){
+        abilities{
+            ability{
+                name
+                url
+            }
+        }
+    }
+}

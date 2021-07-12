@@ -1,0 +1,25 @@
+overwrite: true
+schema: "https://mazipan-gql-pokeapi.herokuapp.com/graphql"
+documents: "App/**/*.gql"
+generates:
+  App/__generated__/types.ts:
+    - typescript
+  App/:
+    preset: near-operation-file
+    presetConfig:
+      folder: __generated__
+      extension: .tsx
+      baseTypesPath: __generated__/types.ts
+    plugins:
+      - typescript-operations
+      - typescript-react-apollo
+      - typescript
+    config:
+      disableDescriptions: true
+      declarationKind: 'interface'
+      nonOptionalTypename: true
+      dedupeOperationSuffix: true
+      withComponent: true
+      withHooks: true
+      withHOC: false
+      reactApolloVersion: 2
